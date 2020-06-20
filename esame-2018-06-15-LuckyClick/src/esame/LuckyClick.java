@@ -294,7 +294,7 @@ public class LuckyClick extends Application{
      * @param grid The grid into which the element is searched.
      * @param row The row of the desired element.
      * @param col The column of the desired element.
-     * @return 
+     * @return The element at the desired coordinates. If no element is found, it returns null
      */
     private Node getElementByCoords(GridPane grid, int row, int col){
         for(Node n : grid.getChildren()){
