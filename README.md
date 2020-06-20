@@ -1,2 +1,3 @@
-# Programmazione2
-Codici sorgente degli esami di programmazione 2 dei proff. Picco e Ronchetti
+# Corso di Programmazione 2 (145019) @ unitn
+
+Codici sorgente degli esami di **Programmazione 2** dei prof. *Picco* e *Ronchetti*
