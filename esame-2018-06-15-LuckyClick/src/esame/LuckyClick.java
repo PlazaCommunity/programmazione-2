@@ -4,7 +4,6 @@ import java.util.Random;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
@@ -14,7 +13,6 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -90,7 +88,6 @@ public class LuckyClick extends Application{
     public static void main(String[] args) {
         launch(args);
     }
-
     
     @Override
     public void start(Stage window) {
