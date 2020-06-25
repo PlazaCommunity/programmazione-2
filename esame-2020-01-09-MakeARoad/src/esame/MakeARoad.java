@@ -15,6 +15,8 @@ import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -42,6 +44,7 @@ public class MakeARoad extends Application {
     private Collection<Button> autoButtons;
     
     private ClickAction action;
+    private boolean createAuto;
     
     public enum ClickAction {
         NORTH,
@@ -49,8 +52,6 @@ public class MakeARoad extends Application {
         EAST,
         WEST,
         GRASS,
-        
-        AUTO,
         
         NONE
     }
@@ -64,7 +65,9 @@ public class MakeARoad extends Application {
         
         for (int y = 0; y < CELL_ROWS; y++) {
             for (int x = 0; x < CELL_COLS; x++) {
-                grid.add(new Grass(), x, y);
+                Cell cell = new Grass();
+                cell.setOnMouseClicked(cellHandler);
+                grid.add(cell, x, y);
             }
         }
         
@@ -98,10 +101,29 @@ public class MakeARoad extends Application {
         autoControls = new VBox();
         autoButtons = new ArrayList();
         Button autoAdd = createUniformButton("Aggiungi auto");
-        autoAdd.setOnAction(ev -> setAction(ev.getTarget(), ClickAction.AUTO));
+        Button autoMove = createUniformButton("Muovi auto");
+        Button autoReset = createUniformButton("Reset auto");
+        
+        autoAdd.setOnAction(ev -> {
+            createAuto = true;
+            autoMove.setDisable(false);
+            autoAdd.setDisable(true);
+        });
+        
+        autoMove.setDisable(true);
+        autoMove.setOnAction(ev -> {
+            
+        });
+        
+        autoReset.setOnAction(ev -> {
+            createAuto = false;
+            autoMove.setDisable(true);
+            autoAdd.setDisable(false);
+        });
+        
         autoButtons.add(autoAdd);
-        autoButtons.add(createUniformButton("Muovi auto"));
-        autoButtons.add(createUniformButton("Reset auto"));
+        autoButtons.add(autoMove);
+        autoButtons.add(autoReset);
         autoControls.getChildren().addAll(autoButtons);
         
         controls.getChildren().addAll(pathControls, autoControls);
@@ -133,6 +155,7 @@ public class MakeARoad extends Application {
         button.setMaxWidth(BUTTON_WIDTH);
         button.setMinHeight(BUTTON_HEIGHT);
         button.setMaxHeight(BUTTON_HEIGHT);
+        button.setFocusTraversable(false);
         return button;
     }
     
@@ -144,20 +167,57 @@ public class MakeARoad extends Application {
             case WEST:
             case GRASS: {
                 pathButtons.forEach(btn -> {
-                    if (btn != target) {
-                        btn.setDisable(true);
-                    }
+                    btn.setDisable(btn == target);
                 });
                 break;
             }
-            default:
-                pathButtons.forEach(btn -> btn.setDisable(false));
-                break;
         }
-        System.out.println(action);
         this.action = action;
     }
+    
+    private Road.Direction dirFromAction(ClickAction action) {
+        switch (action) {
+            case NORTH:
+                return Road.Direction.NORTH;
+            case SOUTH:
+                return Road.Direction.SOUTH;
+            case EAST:
+                return Road.Direction.EAST;
+            case WEST:
+                return Road.Direction.WEST;
+        }
+        throw new RuntimeException("Unreachable code");
+    }
 
+    EventHandler cellHandler = new EventHandler() {
+            @Override
+            public void handle(Event event) {
+                if(event.getSource() instanceof Cell){
+                    Cell source = (Cell) event.getSource();
+                    int col = GridPane.getColumnIndex(source);
+                    int row = GridPane.getRowIndex(source);
+                    switch (action) {
+                        case NORTH:
+                        case SOUTH:
+                        case EAST:
+                        case WEST:
+                            grid.getChildren().remove(source);
+                            Cell road = new Road(dirFromAction(action));
+                            road.setOnMouseClicked(cellHandler);
+                            grid.add(road, col, row);
+                            break;
+                        case GRASS:
+                            grid.getChildren().remove(source);
+                            Cell grass = new Grass();
+                            grass.setOnMouseClicked(cellHandler);
+                            grid.add(grass, col, row);
+                            break;
+                    }
+                    System.out.println("Clicked cell " + row + " - " + col);
+                }
+            }
+        };
+    
     /**
      * @param args the command line arguments
      */
