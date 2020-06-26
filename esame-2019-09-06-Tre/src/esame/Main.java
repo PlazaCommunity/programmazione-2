@@ -13,12 +13,19 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
- *
+ * Main class of the application
  * @author Thomas Nonis
  * @author thomas.nonis@studenti.unitn.it
  */
 public class Main extends Application{
+    /**
+     * Number of cell columns
+     */
     static final int COLS = 3;
+    
+    /**
+     * Number of cell rows
+     */
     static final int ROWS = COLS;
     
     Scene scene;
@@ -28,10 +35,17 @@ public class Main extends Application{
     Button clearBtn;
     Button checkBtn;
     
+    /**
+     * Launches the application
+     * @param args The command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
     
+    /**
+     * Initialization before the application starts
+     */
     @Override
     public void init(){
         clearBtn = new Button("clear All");
@@ -61,6 +75,10 @@ public class Main extends Application{
         });
     }
     
+    /**
+     * Application start
+     * @param window the primary stage
+     */
     @Override
     public void start(Stage window) {
         window.setScene(scene);
@@ -69,6 +87,9 @@ public class Main extends Application{
         window.show();
     }
     
+    /**
+     * Fills the grid with cells, with a 50% probability of inserting a two- or three-type cell
+     */
     private void fill(){
         for(int y = 0; y < ROWS; y++){
             for(int x = 0; x < COLS; x++){
@@ -81,6 +102,12 @@ public class Main extends Application{
         }
     }
     
+    /**
+     * Returns the cell at the desired coordinates
+     * @param col The desired column
+     * @param row The desired row
+     * @return The desired cell
+     */
     Cell getCellByCoords(int col, int row){
         for(Node n : grid.getChildren()){
             if(GridPane.getColumnIndex(n) == col && GridPane.getRowIndex(n) == row && n instanceof Cell){
@@ -90,7 +117,9 @@ public class Main extends Application{
         return null;
     }
     
-    
+    /**
+     * Event handler for clearing all cells
+     */
     EventHandler clearHandler = e -> {
         for(Node n : grid.getChildren()){
             if(n instanceof Cell){
@@ -99,6 +128,9 @@ public class Main extends Application{
         }
     };
     
+    /**
+     * Event handler for checking uniform rows/columns
+     */
     EventHandler checkHandler = e -> {
         throw new UnsupportedOperationException("Function checkHandler is not available yet");
     };

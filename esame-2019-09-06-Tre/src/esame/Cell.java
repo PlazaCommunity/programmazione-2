@@ -11,21 +11,50 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 
 /**
- *
+ * Abstract class for all cells
  * @author Thomas Nonis
  * @author thomas.nonis@studenti.unitn.it
  */
 public abstract class Cell extends VBox{
-    protected static final double CELL_SIZE = 50.0; //px
+    /**
+     * The size of the cell in px
+     */
+    protected static final double CELL_SIZE = 50.0;
+    
+    /**
+     * The size of the shape border
+     */
     protected static final double BORDER_SIZE = 1; //px
+    
+    /**
+     * The pane that holds the shape
+     */
     protected StackPane shapePane;
+    
+    /**
+     * The shape displayed in the cell
+     */
     protected Shape shape;
+    
+    /**
+     * The layout that holds the buttons of the cell
+     */
     protected HBox buttons;
+    
+    /**
+     * The button that clears the cell. It is present in every cell as the first button
+     */
     private Button clearBtn;
     
+    /**
+     * Default constructor
+     */
     Cell(){
         clearBtn = new Button("C");
-        shape = new Rectangle(CELL_SIZE * 0.75, CELL_SIZE * 0.75); //placeholder
+        
+        //placeholder shape to mantain the shape of the cells
+        shape = new Rectangle(CELL_SIZE * 0.75, CELL_SIZE * 0.75);
+        //set the shape to be invisibile at first
         shape.setVisible(false);
        
         buttons = new HBox(clearBtn);
@@ -44,11 +73,19 @@ public abstract class Cell extends VBox{
         this.setPadding(new Insets(CELL_SIZE * 0.1));
     }
     
+    /**
+     * Clears the cell, hiding the shape
+     */
     public void clear(){
         System.out.println("Clearing cell");
         shape.setVisible(false);
     }
 
+    /**
+     * Returns true if two cells are equal. Two cells are equal if they display the same shape
+     * @param obj The cell to compare to
+     * @return true if the cells display the same shape. Otherwise it returns false
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -60,14 +97,8 @@ public abstract class Cell extends VBox{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Cell other = (Cell) obj;
        
-        return( this.shape.getClass() == other.shape.getClass() );
+        return( this.shape.getClass() == ((Cell) obj).shape.getClass() );
     }
-    
-
-    
-    
-    
 
 }
