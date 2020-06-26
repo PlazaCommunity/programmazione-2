@@ -41,8 +41,7 @@ public class ThreeCell extends Cell{
             System.out.println("Triangle set");
             shapePane.getChildren().remove(shape);
             
-            //TODO: change to triangle polygon
-            shape = new Rectangle(CELL_SIZE * 0.75, CELL_SIZE * 0.75);
+            shape = new Triangle(CELL_SIZE * 0.75, CELL_SIZE * 0.75);
             shape.setFill(COLOR);
             shape.setStroke(BORDER_COLOR);
             shape.setStrokeWidth(BORDER_SIZE);
