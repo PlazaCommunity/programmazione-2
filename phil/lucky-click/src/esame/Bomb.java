@@ -20,7 +20,6 @@ public class Bomb extends Cell {
 
     public Bomb() {
         super();
-        setLabel("✚");
     }
 
     @Override
