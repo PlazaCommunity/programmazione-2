@@ -30,8 +30,18 @@ public class Bomb extends Cell {
         for (int i = 0; i < LuckyClick.SIZE; i++) {
             int pos = i;
             keyFrames.add(new KeyFrame(Duration.millis(i * 20), (e) -> {
-                game.cells[y][pos].onClick(game, pos, y);
-                game.cells[pos][x].onClick(game, x, pos);
+                if (y + pos < LuckyClick.SIZE) {
+                    game.cells[y + pos][x].onClick(game, x, y + pos);
+                }
+                if (y - pos >= 0) {
+                    game.cells[y - pos][x].onClick(game, x, y - pos);
+                }
+                if (x + pos < LuckyClick.SIZE) {
+                    game.cells[y][x + pos].onClick(game, x + pos, y);
+                }
+                if (x - pos >= 0) {
+                    game.cells[y][x - pos].onClick(game, x - pos, y);
+                }
             }));
         }
         
