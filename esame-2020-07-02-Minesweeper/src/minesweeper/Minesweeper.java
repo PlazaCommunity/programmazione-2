@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 
 /**
- *
+ * Main application of the minesweeper game
  * @author Thomas Nonis
  * @author thomas.nonis@studenti.unitn.it
  */
@@ -129,7 +129,7 @@ public class Minesweeper extends Application {
     /**
      * Sets the game to its initial status
      */
-    private void reset(){
+    public void reset(){
         peekMode = false;
         testBtn.setDisable(false);
         randomBtn.setDisable(false);

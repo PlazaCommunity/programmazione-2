@@ -23,11 +23,16 @@ public class Bomb extends Cell{
      */
     public void trigger(Minesweeper mainRef){
         super.trigger(mainRef);
+        
         this.getChildren().add( new Circle(SIZE / 2 * 0.75, BOMB_BG) );
+        
         mainRef.cellsLeft--;
+        
         if(!mainRef.peekMode){
             new Prompt(Prompt.Status.LOSS);
+            //Based on the interpretation, choose one:
             Platform.exit();
+            //mainRef.reset();
         }
     }
 }
