@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package minesweeper;
 
 import javafx.geometry.Insets;
@@ -16,8 +11,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
- *
- * @author Thomas
+ * Prompt class, used to display the WIN/LOSS popup
+ * @author Thomas Nonis
+ * @author thomas.nonis@studenti.unitn.it
  */
 public class Prompt {
     public static enum Status{
