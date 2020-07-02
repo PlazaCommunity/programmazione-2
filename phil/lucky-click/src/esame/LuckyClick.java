@@ -59,6 +59,7 @@ public class LuckyClick extends Application {
         int bombCellCount = 5;
 
         Random r = new Random();
+
         List<Cell> pool = new LinkedList();
         for (int i = 0; i < normalCellCount; i++) {
             pool.add(new Base(r));
