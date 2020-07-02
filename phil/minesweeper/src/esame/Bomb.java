@@ -15,7 +15,7 @@ public class Bomb extends Cell {
     public void onReveal(Minesweeper game, int x, int y) {
         game.score--;
 
-        setColor(Color.INDIANRED);
+        setColor(Color.RED);
         Circle circle = new Circle(10, Color.BLACK);
         getChildren().add(circle);
     }

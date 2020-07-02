@@ -24,7 +24,7 @@ public class Normal extends Cell {
     public void onReveal(Minesweeper game, int x, int y) {
         game.score--;
 
-        setColor(Color.LIGHTYELLOW);
+        setColor(Color.YELLOW);
 
         int bombs = 0;
 
@@ -36,7 +36,8 @@ public class Normal extends Cell {
         if (x > 0 && y > 0) bombs += game.cells[y - 1][x - 1] instanceof Bomb ? 1 : 0;
         if (x < Minesweeper.SIZE - 1 && y > 0) bombs += game.cells[y - 1][x + 1] instanceof Bomb ? 1 : 0;
         if (x > 0 && y < Minesweeper.SIZE - 1) bombs += game.cells[y + 1][x - 1] instanceof Bomb ? 1 : 0;
-        if (x < Minesweeper.SIZE - 1&& y < Minesweeper.SIZE - 1) bombs += game.cells[y + 1][x + 1] instanceof Bomb ? 1 : 0;
+        if (x < Minesweeper.SIZE - 1 && y < Minesweeper.SIZE - 1)
+            bombs += game.cells[y + 1][x + 1] instanceof Bomb ? 1 : 0;
 
         setText(String.valueOf(bombs));
     }

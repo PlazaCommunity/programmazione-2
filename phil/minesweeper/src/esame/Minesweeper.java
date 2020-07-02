@@ -1,7 +1,6 @@
 package esame;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
@@ -20,19 +19,20 @@ public class Minesweeper extends Application {
     public final static int SIZE = 9;
 
     public Cell[][] cells;
-
+    public int score;
+    public boolean lost;
     private VBox root;
     private GridPane grid;
-
     private Button test;
     private Button random;
     private Button exit;
     private Button peek;
-
-    public int score;
-    public boolean lost;
     private boolean isPeeking;
     private boolean isPlaying;
+
+    public static void main(String[] args) {
+        Minesweeper.launch(args);
+    }
 
     public void setCell(int x, int y, Cell cell) {
         cells[y][x] = cell;
@@ -40,13 +40,13 @@ public class Minesweeper extends Application {
         cell.setOnMouseClicked(event -> {
             if (isPlaying) {
                 if (isPeeking) {
-                    cell.onReveal(this, x, y);
+                    cell.reveal(this, x, y);
                     isPeeking = false;
                 } else {
-                    cell.onClick(this, x, y);
+                    cell.click(this, x, y);
                 }
                 if (lost) {
-                    alert("Hai perso, mona!");
+                    alert("Hai perso!");
                     isPlaying = false;
                 } else if (score <= 10) {
                     alert("Hai vinto!");
@@ -122,7 +122,6 @@ public class Minesweeper extends Application {
         fillTest();
     }
 
-
     public void game() {
         grid.setCursor(Cursor.CROSSHAIR);
 
@@ -182,9 +181,5 @@ public class Minesweeper extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Minesweeper");
         primaryStage.show();
-    }
-
-    public static void main(String[] args) {
-        Minesweeper.launch(args);
     }
 }
