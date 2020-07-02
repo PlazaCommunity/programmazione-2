@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/phil/blackjack/blackjack.iml" filepath="$PROJECT_DIR$/phil/blackjack/blackjack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/phil/concessionaria/concessionaria.iml" filepath="$PROJECT_DIR$/phil/concessionaria/concessionaria.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esame-2018-06-15-LuckyClick/esame-2018-06-15-LuckyClick.iml" filepath="$PROJECT_DIR$/esame-2018-06-15-LuckyClick/esame-2018-06-15-LuckyClick.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esame-2018-07-05-Concessionaria/esame-2018-07-05-Concessionaria.iml" filepath="$PROJECT_DIR$/esame-2018-07-05-Concessionaria/esame-2018-07-05-Concessionaria.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esame-2018-09-11-BlackJack/esame-2018-09-11-BlackJack.iml" filepath="$PROJECT_DIR$/esame-2018-09-11-BlackJack/esame-2018-09-11-BlackJack.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esame-2019-01-18-Scacchiera/esame-2019-01-18-Scacchiera.iml" filepath="$PROJECT_DIR$/esame-2019-01-18-Scacchiera/esame-2019-01-18-Scacchiera.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esame-2019-06-19-Palestra/esame-2019-06-19-Palestra.iml" filepath="$PROJECT_DIR$/esame-2019-06-19-Palestra/esame-2019-06-19-Palestra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esame-2019-07-26-Escape/esame-2019-07-26-Escape.iml" filepath="$PROJECT_DIR$/esame-2019-07-26-Escape/esame-2019-07-26-Escape.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esame-2019-09-06-Tre/esame-2019-09-06-Tre.iml" filepath="$PROJECT_DIR$/esame-2019-09-06-Tre/esame-2019-09-06-Tre.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esame-2020-01-19-MakeARoad/esame-2020-01-19-MakeARoad.iml" filepath="$PROJECT_DIR$/esame-2020-01-19-MakeARoad/esame-2020-01-19-MakeARoad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/phil/lucky-click/lucky-click.iml" filepath="$PROJECT_DIR$/phil/lucky-click/lucky-click.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/programmazione-2.iml" filepath="$PROJECT_DIR$/.idea/programmazione-2.iml" />
+    </modules>
+  </component>
+</project>

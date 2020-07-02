@@ -18,6 +18,7 @@ public abstract class Auto {
         IBRIDO(5000);
         
         private final int discount;
+
         Engine(int discount) {
             this.discount = discount;
         }

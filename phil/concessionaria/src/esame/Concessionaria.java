@@ -30,8 +30,6 @@ import javafx.stage.Stage;
 public class Concessionaria extends Application {
     
     private List<Auto> archive;
-    
-    private List<Auto> current;
 
     private AnchorPane root;
     
@@ -73,7 +71,7 @@ public class Concessionaria extends Application {
             if(sort.getText().equals("id")){
                 sort.setText("mese");
                 Collections.sort(archive, new Auto.CompareMonth());
-            }else{
+            } else {
                 sort.setText("id");
                 Collections.sort(archive, new Auto.CompareId());
             }
@@ -92,9 +90,9 @@ public class Concessionaria extends Application {
         controls.setAlignment(Pos.BOTTOM_RIGHT);
         
         root.getChildren().addAll(text, controls);
-        root.setTopAnchor(text, 0.);
-        root.setBottomAnchor(controls, 0.);
-        root.setRightAnchor(controls, 0.);
+        AnchorPane.setTopAnchor(text, 0.);
+        AnchorPane.setBottomAnchor(controls, 0.);
+        AnchorPane.setRightAnchor(controls, 0.);
     }
     
     @Override

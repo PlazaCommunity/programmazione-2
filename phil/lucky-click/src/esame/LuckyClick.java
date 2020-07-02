@@ -28,7 +28,7 @@ public class LuckyClick extends Application {
     
     public static final int SIZE = 10;
     
-    public Cell cells[][];
+    public Cell[][] cells;
     
     private int score;
     private int tries;
@@ -133,5 +133,4 @@ public class LuckyClick extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
 }

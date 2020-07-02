@@ -37,7 +37,7 @@ public abstract class Cell extends StackPane {
         getChildren().addAll(rect, text);
     }
     
-    public void onClick(LuckyClick game, int x, int y) {
+    public final void onClick(LuckyClick game, int x, int y) {
         if (!active) {
             active = true;
             onClickEvent(game, x, y);
